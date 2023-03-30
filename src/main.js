@@ -39,6 +39,7 @@ var tagline2 = document.querySelector(".tagline-2");
 
 // Add your event listeners here 👇
 window.addEventListener("load", getRandomCover);
+randomCoverButton.addEventListener("click", getRandomCover);
 
 // Create your event handlers and other functions here 👇
 
