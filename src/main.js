@@ -10,18 +10,19 @@
 // querySelector variables.
 
 // Buttons. Controls. Elements.
-var homeButton = document.querySelector(".home-button");
+// ==> future iteration
+// var homeButton = document.querySelector(".home-button");
 var randomCoverButton = document.querySelector(".random-cover-button");
-var saveCoverButton = document.querySelector(".save-cover-button");
-var viewSavedCoversButton = document.querySelector(".view-saved-button");
-var makeNewCoverButton = document.querySelector(".make-new-button");
-var makeMyBookButton = document.querySelector('.create-new-book-button');
+// var saveCoverButton = document.querySelector(".save-cover-button");
+// var viewSavedCoversButton = document.querySelector(".view-saved-button");
+// var makeNewCoverButton = document.querySelector(".make-new-button");
+// var makeMyBookButton = document.querySelector('.create-new-book-button');
 
 // View elements.
-var homeView = document.querySelector(".home-view");
-var formView = document.querySelector(".form-view");
-var savedView = document.querySelector(".saved-view");
-var savedCoverSection = document.querySelector(".saved-covers-section");
+// var homeView = document.querySelector(".home-view");
+// var formView = document.querySelector(".form-view");
+// var savedView = document.querySelector(".saved-view");
+// var savedCoverSection = document.querySelector(".saved-covers-section");
 
 // Cover elements.
 var coverImage = document.querySelector(".cover-image");
@@ -30,14 +31,14 @@ var tagline1 = document.querySelector(".tagline-1");
 var tagline2 = document.querySelector(".tagline-2");
 
 // Form elements.
-var userInputCover = document.querySelector(".user-cover");
-var userInputTitle = document.querySelector(".user-title");
-var userInputDesc1 = document.querySelector(".user-desc1");
-var userInputDesc2 = document.querySelector(".user-desc2");
-var createNewBookButton = document.querySelector(".create-new-book-button");
+// var userInputCover = document.querySelector(".user-cover");
+// var userInputTitle = document.querySelector(".user-title");
+// var userInputDesc1 = document.querySelector(".user-desc1");
+// var userInputDesc2 = document.querySelector(".user-desc2");
+// var createNewBookButton = document.querySelector(".create-new-book-button");
 
 // Add your event listeners here 👇
-
+window.addEventListener("load", getRandomCover);
 
 // Create your event handlers and other functions here 👇
 
@@ -67,6 +68,14 @@ function createCover(imgSrc, title, descriptor1, descriptor2) {
   return cover
 };
 
-  
+function getRandomCover() {
+  currentCover = createCover(
+  covers[getRandomIndex(covers)], titles[getRandomIndex(titles)], descriptors[getRandomIndex(descriptors)], descriptors[getRandomIndex(descriptors)]);
+
+  coverImage.src = currentCover.coverImg
+  coverTitle.innerText = currentCover.title
+  tagline1.innerText = currentCover.tagline1
+  tagline2.innerText = currentCover.tagline2
+  }
   
   
