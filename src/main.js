@@ -109,9 +109,6 @@ function getRandomCover() {
 
     randomCoverButton.classList.add('hidden');
     saveCoverButton.classList.add('hidden');
-
-    // savedCoverSection.innerHTML = '';
-    // showSavedCovers();
   };
 
   function viewHomePage() {
@@ -126,7 +123,5 @@ function getRandomCover() {
     saveCoverButton.classList.remove('hidden');
     viewSavedCoversButton.classList.remove('hidden');
     makeNewCoverButton.classList.remove('hidden');
-    
-    // savedCoverSection.innerHTML = ``;
   };
   
