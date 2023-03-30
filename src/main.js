@@ -40,9 +40,10 @@ var savedCoverSection = document.querySelector(".saved-covers-section");
 window.addEventListener("load", getRandomCover);
 randomCoverButton.addEventListener("click", getRandomCover);
 
-makeNewCoverButton.addEventListener("click", makeYourOwnCover);
+makeNewCoverButton.addEventListener("click", viewMakeYourOwnCover);
 
 viewSavedCoversButton.addEventListener("click", viewSavedCovers);
+homeButton.addEventListener("click", viewHomePage);
 
 // Create your event handlers and other functions here 👇
 
@@ -82,7 +83,7 @@ function getRandomCover() {
   tagline2.innerText = currentCover.tagline2
   };
 
-  function makeYourOwnCover() {
+  function viewMakeYourOwnCover() {
     homeView.classList.add('hidden');
     savedView.classList.add('hidden');
 
@@ -111,5 +112,21 @@ function getRandomCover() {
 
     // savedCoverSection.innerHTML = '';
     // showSavedCovers();
+  };
+
+  function viewHomePage() {
+    formView.classList.add('hidden');
+    savedView.classList.add('hidden');
+    
+    homeView.classList.remove('hidden');
+    
+    homeButton.classList.add('hidden');
+
+    randomCoverButton.classList.remove('hidden');
+    saveCoverButton.classList.remove('hidden');
+    viewSavedCoversButton.classList.remove('hidden');
+    makeNewCoverButton.classList.remove('hidden');
+    
+    // savedCoverSection.innerHTML = ``;
   };
   
