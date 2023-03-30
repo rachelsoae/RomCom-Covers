@@ -11,18 +11,18 @@
 
 // Buttons. Controls. Elements.
 // ==> future iteration
-// var homeButton = document.querySelector(".home-button");
+var homeButton = document.querySelector(".home-button");
 var randomCoverButton = document.querySelector(".random-cover-button");
-// var saveCoverButton = document.querySelector(".save-cover-button");
-// var viewSavedCoversButton = document.querySelector(".view-saved-button");
-// var makeNewCoverButton = document.querySelector(".make-new-button");
+var saveCoverButton = document.querySelector(".save-cover-button");
+var viewSavedCoversButton = document.querySelector(".view-saved-button");
+var makeNewCoverButton = document.querySelector(".make-new-button");
 // var makeMyBookButton = document.querySelector('.create-new-book-button');
 
 // View elements.
-// var homeView = document.querySelector(".home-view");
-// var formView = document.querySelector(".form-view");
-// var savedView = document.querySelector(".saved-view");
-// var savedCoverSection = document.querySelector(".saved-covers-section");
+var homeView = document.querySelector(".home-view");
+var formView = document.querySelector(".form-view");
+var savedView = document.querySelector(".saved-view");
+var savedCoverSection = document.querySelector(".saved-covers-section");
 
 // Cover elements.
 var coverImage = document.querySelector(".cover-image");
@@ -40,6 +40,7 @@ var tagline2 = document.querySelector(".tagline-2");
 // Add your event listeners here 👇
 window.addEventListener("load", getRandomCover);
 randomCoverButton.addEventListener("click", getRandomCover);
+makeNewCoverButton.addEventListener("click", makeYourOwnCover);
 
 // Create your event handlers and other functions here 👇
 
@@ -77,6 +78,19 @@ function getRandomCover() {
   coverTitle.innerText = currentCover.title
   tagline1.innerText = currentCover.tagline1
   tagline2.innerText = currentCover.tagline2
-  }
+  };
+
+  function makeYourOwnCover(){
+    homeView.classList.add('hidden');
+    formView.classList.remove('hidden');
+    savedView.classList.add('hidden');
+    homeButton.classList.remove('hidden');
+    saveCoverButton.classList.add('hidden');
+    makeNewCoverButton.classList.remove('hidden');
+    randomCoverButton.classList.add('hidden');
+    viewSavedCoversButton.classList.remove('hidden');
+
+  };
+
   
   
