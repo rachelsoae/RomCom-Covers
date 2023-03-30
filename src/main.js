@@ -42,6 +42,8 @@ randomCoverButton.addEventListener("click", getRandomCover);
 
 makeNewCoverButton.addEventListener("click", makeYourOwnCover);
 
+viewSavedCoversButton.addEventListener("click", viewSavedCovers);
+
 // Create your event handlers and other functions here 👇
 
 // Variables
@@ -94,5 +96,20 @@ function getRandomCover() {
     viewSavedCoversButton.classList.remove('hidden');
   };
 
-  
+  function viewSavedCovers() {
+    homeView.classList.add('hidden');
+    formView.classList.add('hidden');
+
+    homeButton.classList.remove('hidden');
+    savedView.classList.remove('hidden');
+    makeNewCoverButton.classList.remove('hidden');
+    // I don't think we need this button?:
+    // viewSavedCoversButton.classList.remove('hidden');
+
+    randomCoverButton.classList.add('hidden');
+    saveCoverButton.classList.add('hidden');
+
+    // savedCoverSection.innerHTML = '';
+    // showSavedCovers();
+  };
   
