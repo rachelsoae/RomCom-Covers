@@ -49,12 +49,10 @@ makeNewCoverButton.addEventListener("click", viewMakeYourOwnCover);
 viewSavedCoversButton.addEventListener("click", viewSavedCovers);
 homeButton.addEventListener("click", viewHomePage);
 
-makeMyBookButton.addEventListener("click", createNewCover);
-
-// function(event) {
-//   event.preventDefault();
-//   createNewCover();
-// })
+makeMyBookButton.addEventListener("click", function(event) {
+  event.preventDefault();
+  createNewCover;
+})
 
 // Create your event handlers and other functions here 👇
 
@@ -147,18 +145,18 @@ function createNewCover() {
   // if(!userInputCover.value || !userInputTitle.value || !userInputDesc1.value || !userInputDesc2.value) {
   //   alert("Please fill out all fields");
   // } else {
-  //     coverImage.src = userInputCover.value;
-  //     coverTitle.innerText = userInputTitle.value;
-  //     tagline1.innerText = userInputDesc1.value;
-  //     tagline2.innerText = userInputDesc2.value;
+      coverImage.src = userInputCover.value;
+      coverTitle.innerText = userInputTitle.value;
+      tagline1.innerText = userInputDesc1.value;
+      tagline2.innerText = userInputDesc2.value;
 
-  //     pushValuesToArray();
+      pushValuesToArray();
 
       viewHomePage();
 
       // document.querySelector("form").reset();
   };
-};
+// };
 
 function pushValuesToArray() {
   covers.push(userInputCover.value);
