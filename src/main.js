@@ -21,7 +21,7 @@ var randomCoverButton = document.querySelector(".random-cover-button");
 var saveCoverButton = document.querySelector(".save-cover-button");
 var viewSavedCoversButton = document.querySelector(".view-saved-button");
 var makeNewCoverButton = document.querySelector(".make-new-button");
-// var makeMyBookButton = document.querySelector('.create-new-book-button');
+var makeMyBookButton = document.querySelector('.create-new-book-button');
 
 // View elements.
 var homeView = document.querySelector(".home-view");
@@ -30,17 +30,18 @@ var savedView = document.querySelector(".saved-view");
 var savedCoverSection = document.querySelector(".saved-covers-section");
 
 // Form elements.
-// var userInputCover = document.querySelector(".user-cover");
-// var userInputTitle = document.querySelector(".user-title");
-// var userInputDesc1 = document.querySelector(".user-desc1");
-// var userInputDesc2 = document.querySelector(".user-desc2");
-// var createNewBookButton = document.querySelector(".create-new-book-button");
+var userInputCover = document.querySelector(".user-cover");
+var userInputTitle = document.querySelector(".user-title");
+var userInputDesc1 = document.querySelector(".user-desc1");
+var userInputDesc2 = document.querySelector(".user-desc2");
+var createNewBookButton = document.querySelector(".create-new-book-button");
 
 // Add your event listeners here 👇
 window.addEventListener("load", getRandomCover);
 randomCoverButton.addEventListener("click", getRandomCover);
 
 makeNewCoverButton.addEventListener("click", makeYourOwnCover);
+createNewBookButton.addEventListener("click", createNewCover);
 
 // Create your event handlers and other functions here 👇
 
@@ -93,6 +94,28 @@ function getRandomCover() {
     makeNewCoverButton.classList.remove('hidden');
     viewSavedCoversButton.classList.remove('hidden');
   };
+  
+  function createNewCover() {
+  event.preventDefault();
+  if(!userInputCover.value || !userInputTitle.value || !userInputDesc1.value || !userInputDesc2.value) {
+   alert("Please fill out all fields");
+  } else {
+      coverImage.src = userInputCover.value;
+      coverTitle.innerText = userInputTitle.value;
+      tagline1.innerText = userInputDesc1.value;
+      tagline2.innerText = userInputDesc2.value;
+      pushValuesToArray();
+      viewHomePage();
+      document.querySelector("form").reset();
+    };
+};
+
+function pushValuesToArray() {
+  covers.push(userInputCover.value);
+  titles.push(userInputTitle.value);
+  descriptors.push(userInputDesc1.value);
+  descriptors.push(userInputDesc2.value);
+};
 
   
   
