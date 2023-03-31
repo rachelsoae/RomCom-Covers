@@ -1,9 +1,3 @@
-// We've provided a few variables below
-// var savedCovers = [
-//   createCover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows")
-// ];
-// var currentCover;
-
 // Create variables targetting the relevant DOM elements here 👇
 
 // querySelector variables.
@@ -47,6 +41,12 @@ savedCoverSection.addEventListener("dblclick", removeCover);
 
 
 // Create your event handlers and other functions here 👇
+
+// We've provided a few variables below
+// var savedCovers = [
+//   createCover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows")
+// ];
+// var currentCover;
 
 // Variables
 
@@ -171,30 +171,7 @@ function saveCover(){
 //     };
 //   }    
 
-// var savedCovers = [
-//   createCover(covers[getRandomIndex(cover)], titles[getRandomIndex(title)], 
-//   descriptors[getRandomIndex(descriptors)], 
-//   descriptors[getRandomIndex(descriptors)])
-// ];
 
-
-// function saveCover() {
-//   var savedCoverImage = coverImage.src;
-//   var savedTitle = coverTitle.innerText;
-//   var savedDesc1 = tagline1.innerText;
-//   var savedDesc2 = tagline2.innerText;
-//   var savedCover = savedCoverImage,savedTitle,savedDesc1,savedDesc2;
-//   var originalCover = true;
-//   for(var i = 0; i < savedCovers.length; i++) {
-//     if(savedCoverImage === savedCovers[i].cover && savedTitle === savedCovers[i].title && savedDesc1 === savedCovers[i].tagline1 && savedDesc2 === savedCovers[i].tagline2) {
-//         originalCover = false;
-//         alert("This Cover has already been saved!");
-//     };
-//   };
-//   if (originalCover) {
-//     savedCovers.push(savedCover);
-//   };
-// };
 
 function showSavedCovers() {
   for(var i = 0; i < savedCovers.length; i++) {
