@@ -1,4 +1,3 @@
-
 // We've provided a few variables below
 // var savedCovers = [
 //   createCover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows")
@@ -21,7 +20,7 @@ var randomCoverButton = document.querySelector(".random-cover-button");
 var saveCoverButton = document.querySelector(".save-cover-button");
 var viewSavedCoversButton = document.querySelector(".view-saved-button");
 var makeNewCoverButton = document.querySelector(".make-new-button");
-var makeMyBookButton = document.querySelector('.create-new-book-button');
+// var makeMyBookButton = document.querySelector('.create-new-book-button');
 
 // View elements.
 var homeView = document.querySelector(".home-view");
@@ -40,8 +39,10 @@ var createNewBookButton = document.querySelector(".create-new-book-button");
 window.addEventListener("load", getRandomCover);
 randomCoverButton.addEventListener("click", getRandomCover);
 
-makeNewCoverButton.addEventListener("click", makeYourOwnCover);
-createNewBookButton.addEventListener("click", createNewCover);
+makeNewCoverButton.addEventListener("click", viewMakeYourOwnCover);
+
+viewSavedCoversButton.addEventListener("click", viewSavedCovers);
+homeButton.addEventListener("click", viewHomePage);
 
 // Create your event handlers and other functions here 👇
 
@@ -79,6 +80,48 @@ function getRandomCover() {
   coverTitle.innerText = currentCover.title
   tagline1.innerText = currentCover.tagline1
   tagline2.innerText = currentCover.tagline2
+  };
+
+  function viewMakeYourOwnCover() {
+    homeView.classList.add('hidden');
+    savedView.classList.add('hidden');
+
+    formView.classList.remove('hidden');
+
+    saveCoverButton.classList.add('hidden');
+    randomCoverButton.classList.add('hidden');
+
+    homeButton.classList.remove('hidden');
+    makeNewCoverButton.classList.remove('hidden');
+    viewSavedCoversButton.classList.remove('hidden');
+  };
+
+  function viewSavedCovers() {
+    homeView.classList.add('hidden');
+    formView.classList.add('hidden');
+
+    homeButton.classList.remove('hidden');
+    savedView.classList.remove('hidden');
+    makeNewCoverButton.classList.remove('hidden');
+    // I don't think we need this button?:
+    // viewSavedCoversButton.classList.remove('hidden');
+
+    randomCoverButton.classList.add('hidden');
+    saveCoverButton.classList.add('hidden');
+  };
+
+  function viewHomePage() {
+    formView.classList.add('hidden');
+    savedView.classList.add('hidden');
+    
+    homeView.classList.remove('hidden');
+    
+    homeButton.classList.add('hidden');
+
+    randomCoverButton.classList.remove('hidden');
+    saveCoverButton.classList.remove('hidden');
+    viewSavedCoversButton.classList.remove('hidden');
+    makeNewCoverButton.classList.remove('hidden');
   };
 
   function makeYourOwnCover() {
