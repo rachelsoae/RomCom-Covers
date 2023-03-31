@@ -12,7 +12,8 @@ var randomCoverButton = document.querySelector(".random-cover-button");
 var saveCoverButton = document.querySelector(".save-cover-button");
 var viewSavedCoversButton = document.querySelector(".view-saved-button");
 var makeNewCoverButton = document.querySelector(".make-new-button");
-// var makeMyBookButton = document.querySelector('.create-new-book-button');
+
+var makeMyBookButton = document.querySelector(".create-new-book-button");
 
 // View elements.
 var homeView = document.querySelector(".home-view");
@@ -25,7 +26,6 @@ var userInputCover = document.querySelector(".user-cover");
 var userInputTitle = document.querySelector(".user-title");
 var userInputDesc1 = document.querySelector(".user-desc1");
 var userInputDesc2 = document.querySelector(".user-desc2");
-var createNewBookButton = document.querySelector(".create-new-book-button");
 
 // We've provided a few variables below
 // var savedCovers = [
@@ -48,6 +48,13 @@ makeNewCoverButton.addEventListener("click", viewMakeYourOwnCover);
 
 viewSavedCoversButton.addEventListener("click", viewSavedCovers);
 homeButton.addEventListener("click", viewHomePage);
+
+makeMyBookButton.addEventListener("click", createNewCover);
+
+// function(event) {
+//   event.preventDefault();
+//   createNewCover();
+// })
 
 // Create your event handlers and other functions here 👇
 
@@ -78,7 +85,7 @@ function getRandomCover() {
   coverTitle.innerText = currentCover.title
   tagline1.innerText = currentCover.tagline1
   tagline2.innerText = currentCover.tagline2
-  };
+};
 
 function viewMakeYourOwnCover() {
   homeView.classList.add('hidden');
@@ -137,17 +144,19 @@ function makeYourOwnCover() {
 };
 
 function createNewCover() {
-  event.preventDefault();
-  if(!userInputCover.value || !userInputTitle.value || !userInputDesc1.value || !userInputDesc2.value) {
-    alert("Please fill out all fields");
-  } else {
-      coverImage.src = userInputCover.value;
-      coverTitle.innerText = userInputTitle.value;
-      tagline1.innerText = userInputDesc1.value;
-      tagline2.innerText = userInputDesc2.value;
-      pushValuesToArray();
+  // if(!userInputCover.value || !userInputTitle.value || !userInputDesc1.value || !userInputDesc2.value) {
+  //   alert("Please fill out all fields");
+  // } else {
+  //     coverImage.src = userInputCover.value;
+  //     coverTitle.innerText = userInputTitle.value;
+  //     tagline1.innerText = userInputDesc1.value;
+  //     tagline2.innerText = userInputDesc2.value;
+
+  //     pushValuesToArray();
+
       viewHomePage();
-      document.querySelector("form").reset();
+
+      // document.querySelector("form").reset();
   };
 };
 
