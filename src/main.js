@@ -1,12 +1,4 @@
-// We've provided a few variables below
-// var savedCovers = [
-//   createCover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows")
-// ];
-// var currentCover;
-
 // Create variables targetting the relevant DOM elements here 👇
-
-// querySelector variables.
 
 // Cover elements.
 var coverImage = document.querySelector(".cover-image");
@@ -35,6 +27,19 @@ var userInputDesc1 = document.querySelector(".user-desc1");
 var userInputDesc2 = document.querySelector(".user-desc2");
 var createNewBookButton = document.querySelector(".create-new-book-button");
 
+// We've provided a few variables below
+// var savedCovers = [
+//   createCover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows")
+// ];
+// var currentCover;
+
+var savedCovers = [
+  createCover(covers[getRandomIndex(cover)], titles[getRandomIndex(title)], 
+  descriptors[getRandomIndex(descriptors)], 
+  descriptors[getRandomIndex(descriptors)])
+];
+var currentCover;
+
 // Add your event listeners here 👇
 window.addEventListener("load", getRandomCover);
 randomCoverButton.addEventListener("click", getRandomCover);
@@ -46,14 +51,7 @@ homeButton.addEventListener("click", viewHomePage);
 
 // Create your event handlers and other functions here 👇
 
-// Variables
 
-var savedCovers = [
-  createCover(covers[getRandomIndex(cover)], titles[getRandomIndex(title)], 
-  descriptors[getRandomIndex(descriptors)], 
-  descriptors[getRandomIndex(descriptors)])
-];
-var currentCover;
 
 // We've provided two functions to get you started 
 
@@ -82,66 +80,66 @@ function getRandomCover() {
   tagline2.innerText = currentCover.tagline2
   };
 
-  function viewMakeYourOwnCover() {
-    homeView.classList.add('hidden');
-    savedView.classList.add('hidden');
+function viewMakeYourOwnCover() {
+  homeView.classList.add('hidden');
+  savedView.classList.add('hidden');
 
-    formView.classList.remove('hidden');
+  formView.classList.remove('hidden');
 
-    saveCoverButton.classList.add('hidden');
-    randomCoverButton.classList.add('hidden');
+  saveCoverButton.classList.add('hidden');
+  randomCoverButton.classList.add('hidden');
 
-    homeButton.classList.remove('hidden');
-    makeNewCoverButton.classList.remove('hidden');
-    viewSavedCoversButton.classList.remove('hidden');
-  };
+  homeButton.classList.remove('hidden');
+  makeNewCoverButton.classList.remove('hidden');
+  viewSavedCoversButton.classList.remove('hidden');
+};
 
-  function viewSavedCovers() {
-    homeView.classList.add('hidden');
-    formView.classList.add('hidden');
+function viewSavedCovers() {
+  homeView.classList.add('hidden');
+  formView.classList.add('hidden');
 
-    homeButton.classList.remove('hidden');
-    savedView.classList.remove('hidden');
-    makeNewCoverButton.classList.remove('hidden');
-    // I don't think we need this button?:
-    // viewSavedCoversButton.classList.remove('hidden');
+  homeButton.classList.remove('hidden');
+  savedView.classList.remove('hidden');
+  makeNewCoverButton.classList.remove('hidden');
+  // I don't think we need this button?:
+  // viewSavedCoversButton.classList.remove('hidden');
 
-    randomCoverButton.classList.add('hidden');
-    saveCoverButton.classList.add('hidden');
-  };
+  randomCoverButton.classList.add('hidden');
+  saveCoverButton.classList.add('hidden');
+};
 
-  function viewHomePage() {
-    formView.classList.add('hidden');
-    savedView.classList.add('hidden');
-    
-    homeView.classList.remove('hidden');
-    
-    homeButton.classList.add('hidden');
-
-    randomCoverButton.classList.remove('hidden');
-    saveCoverButton.classList.remove('hidden');
-    viewSavedCoversButton.classList.remove('hidden');
-    makeNewCoverButton.classList.remove('hidden');
-  };
-
-  function makeYourOwnCover() {
-    homeView.classList.add('hidden');
-    savedView.classList.add('hidden');
-
-    formView.classList.remove('hidden');
-
-    saveCoverButton.classList.add('hidden');
-    randomCoverButton.classList.add('hidden');
-
-    homeButton.classList.remove('hidden');
-    makeNewCoverButton.classList.remove('hidden');
-    viewSavedCoversButton.classList.remove('hidden');
-  };
+function viewHomePage() {
+  formView.classList.add('hidden');
+  savedView.classList.add('hidden');
   
-  function createNewCover() {
+  homeView.classList.remove('hidden');
+  
+  homeButton.classList.add('hidden');
+
+  randomCoverButton.classList.remove('hidden');
+  saveCoverButton.classList.remove('hidden');
+  viewSavedCoversButton.classList.remove('hidden');
+  makeNewCoverButton.classList.remove('hidden');
+};
+
+function makeYourOwnCover() {
+  homeView.classList.add('hidden');
+  savedView.classList.add('hidden');
+
+  formView.classList.remove('hidden');
+
+  saveCoverButton.classList.add('hidden');
+  randomCoverButton.classList.add('hidden');
+
+  homeButton.classList.remove('hidden');
+  makeNewCoverButton.classList.remove('hidden');
+  viewSavedCoversButton.classList.remove('hidden');
+};
+
+function createNewCover() {
   event.preventDefault();
   if(!userInputCover.value || !userInputTitle.value || !userInputDesc1.value || !userInputDesc2.value) {
-   alert("Please fill out all fields");
+    alert("Please fill out all fields");
   } else {
       coverImage.src = userInputCover.value;
       coverTitle.innerText = userInputTitle.value;
@@ -150,7 +148,7 @@ function getRandomCover() {
       pushValuesToArray();
       viewHomePage();
       document.querySelector("form").reset();
-    };
+  };
 };
 
 function pushValuesToArray() {
@@ -160,5 +158,4 @@ function pushValuesToArray() {
   descriptors.push(userInputDesc2.value);
 };
 
-  
-  
+
