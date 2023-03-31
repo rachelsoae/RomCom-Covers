@@ -20,7 +20,7 @@ var randomCoverButton = document.querySelector(".random-cover-button");
 var saveCoverButton = document.querySelector(".save-cover-button");
 var viewSavedCoversButton = document.querySelector(".view-saved-button");
 var makeNewCoverButton = document.querySelector(".make-new-button");
-// var makeMyBookButton = document.querySelector('.create-new-book-button');
+var makeMyBookButton = document.querySelector('.create-new-book-button');
 
 // View elements.
 var homeView = document.querySelector(".home-view");
@@ -38,11 +38,13 @@ var createNewBookButton = document.querySelector(".create-new-book-button");
 // Add your event listeners here 👇
 window.addEventListener("load", getRandomCover);
 randomCoverButton.addEventListener("click", getRandomCover);
-
 makeNewCoverButton.addEventListener("click", viewMakeYourOwnCover);
-
 viewSavedCoversButton.addEventListener("click", viewSavedCovers);
 homeButton.addEventListener("click", viewHomePage);
+createNewBookButton.addEventListener("click", createNewCover);
+saveCoverButton.addEventListener("click", saveCover);
+savedCoverSection.addEventListener("dblclick", removeCover);
+
 
 // Create your event handlers and other functions here 👇
 
@@ -85,63 +87,46 @@ function getRandomCover() {
   function viewMakeYourOwnCover() {
     homeView.classList.add('hidden');
     savedView.classList.add('hidden');
-
     formView.classList.remove('hidden');
-
     saveCoverButton.classList.add('hidden');
     randomCoverButton.classList.add('hidden');
-
     homeButton.classList.remove('hidden');
     makeNewCoverButton.classList.remove('hidden');
     viewSavedCoversButton.classList.remove('hidden');
+    makeNewCoverButton.classList.remove('hidden');
   };
 
   function viewSavedCovers() {
     homeView.classList.add('hidden');
     formView.classList.add('hidden');
-
     homeButton.classList.remove('hidden');
     savedView.classList.remove('hidden');
     makeNewCoverButton.classList.remove('hidden');
     // I don't think we need this button?:
-    // viewSavedCoversButton.classList.remove('hidden');
-
+    //viewSavedCoversButton.classList.add('hidden');
     randomCoverButton.classList.add('hidden');
     saveCoverButton.classList.add('hidden');
+    savedCoverSection.innerHTML = '';
+    showSavedCovers();
+
   };
 
   function viewHomePage() {
     formView.classList.add('hidden');
     savedView.classList.add('hidden');
-    
     homeView.classList.remove('hidden');
-    
     homeButton.classList.add('hidden');
-
     randomCoverButton.classList.remove('hidden');
     saveCoverButton.classList.remove('hidden');
     viewSavedCoversButton.classList.remove('hidden');
     makeNewCoverButton.classList.remove('hidden');
+    savedCoverSection.innerHTML = ``;
   };
 
-  function makeYourOwnCover() {
-    homeView.classList.add('hidden');
-    savedView.classList.add('hidden');
-
-    formView.classList.remove('hidden');
-
-    saveCoverButton.classList.add('hidden');
-    randomCoverButton.classList.add('hidden');
-
-    homeButton.classList.remove('hidden');
-    makeNewCoverButton.classList.remove('hidden');
-    viewSavedCoversButton.classList.remove('hidden');
-  };
-  
-  function createNewCover() {
+function createNewCover(event) {
   event.preventDefault();
   if(!userInputCover.value || !userInputTitle.value || !userInputDesc1.value || !userInputDesc2.value) {
-   alert("Please fill out all fields");
+   alert("Error “Please fill out all required fields. Thank you!");
   } else {
       coverImage.src = userInputCover.value;
       coverTitle.innerText = userInputTitle.value;
@@ -160,5 +145,84 @@ function pushValuesToArray() {
   descriptors.push(userInputDesc2.value);
 };
 
-  
-  
+function saveCover(){
+  if(!savedCovers.includes(currentCover)){
+    savedCovers.push(currentCover);
+    showSavedCovers();
+  }else{
+    alert("This RomCom Cover has already been saved!");
+  };
+};
+
+
+//Note: None of this needs to persist on page load
+
+// function changeHTML(){
+//   var size = savedCovers.length;
+//     for(var i=0; i<size; i++) {
+//   coverGrid.innerHTML += 
+//   ` <section class="main-cover">
+//         <img class="cover-image" id="${savedCovers[i].id}" src="${savedCovers[i].cover}">
+//         <h2 class="cover-title">${savedCovers[i].title}</h2>
+//         <h3 class="tagline">A tale of <span class="tagline-1">${savedCovers[i].tagline1}</span> and <span class="tagline-2">${savedCovers[i].tagline2}</span></h3>
+//         <img class="price-tag" src="./assets/price.png">
+//         <img class="overlay" src="./assets/overlay.png">
+//       </section>`
+//     };
+//   }    
+
+// var savedCovers = [
+//   createCover(covers[getRandomIndex(cover)], titles[getRandomIndex(title)], 
+//   descriptors[getRandomIndex(descriptors)], 
+//   descriptors[getRandomIndex(descriptors)])
+// ];
+
+
+// function saveCover() {
+//   var savedCoverImage = coverImage.src;
+//   var savedTitle = coverTitle.innerText;
+//   var savedDesc1 = tagline1.innerText;
+//   var savedDesc2 = tagline2.innerText;
+//   var savedCover = savedCoverImage,savedTitle,savedDesc1,savedDesc2;
+//   var originalCover = true;
+//   for(var i = 0; i < savedCovers.length; i++) {
+//     if(savedCoverImage === savedCovers[i].cover && savedTitle === savedCovers[i].title && savedDesc1 === savedCovers[i].tagline1 && savedDesc2 === savedCovers[i].tagline2) {
+//         originalCover = false;
+//         alert("This Cover has already been saved!");
+//     };
+//   };
+//   if (originalCover) {
+//     savedCovers.push(savedCover);
+//   };
+// };
+
+function showSavedCovers() {
+  for(var i = 0; i < savedCovers.length; i++) {
+    savedCoverSection.innerHTML += 
+    `
+    <section class="mini-cover">
+        <img class="cover-image" id="${savedCovers[i].id}" src="${savedCovers[i].cover}">
+        <h2 class="cover-title">${savedCovers[i].title}</h2>
+        <h3 class="tagline">A tale of <span class="tagline-1">${savedCovers[i].tagline1}</span> and <span class="tagline-2">${savedCovers[i].tagline2}</span></h3>
+        <img class="price-tag" src="./assets/price.png">
+        <img class="overlay" src="./assets/overlay.png">
+    </section>
+    `
+    };
+};
+
+//Deleting. Hint: How will you update the data model to achieve this?
+
+// function deletePoster(event) {
+//   CoverGrid.removeChild(event.target.parentNode)
+// };
+
+function removeCover(event) {
+  var coverId = event.target.id;
+  for(var i = 0; i < savedCovers.length; i++) {
+    if(coverId === `${savedCovers[i].id}`) {
+      savedCovers.splice(i, 1);
+    };
+  };
+  viewSavedCovers();
+};
