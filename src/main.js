@@ -115,6 +115,29 @@ function viewHomePage() {
   savedCoverSection.innerHTML = ``;
 };
 
+function viewMakeYourOwnCover() {
+  homeView.classList.add('hidden');
+  savedView.classList.add('hidden');
+
+  formView.classList.remove('hidden');
+
+  saveCoverButton.classList.add('hidden');
+  randomCoverButton.classList.add('hidden');
+
+  homeButton.classList.remove('hidden');
+  makeNewCoverButton.classList.remove('hidden');
+  viewSavedCoversButton.classList.remove('hidden');
+};
+
+function saveCover() {
+  if (!savedCovers.includes(currentCover)) {
+    savedCovers.push(currentCover);
+    displaySavedCovers();
+  } else {
+    alert("This RomCom Cover has already been saved!");
+  }; 
+}
+
 function displaySavedCovers() {
   for (var i = 0; i < savedCovers.length; i++) {
     savedCoverSection.innerHTML += 
@@ -128,29 +151,6 @@ function displaySavedCovers() {
     </section>
     `
   };
-};
-
-function saveCover() {
-  if (!savedCovers.includes(currentCover)) {
-    savedCovers.push(currentCover);
-    displaySavedCovers();
-  } else {
-    alert("This RomCom Cover has already been saved!");
-  }; 
-}
-
-function viewMakeYourOwnCover() {
-  homeView.classList.add('hidden');
-  savedView.classList.add('hidden');
-
-  formView.classList.remove('hidden');
-
-  saveCoverButton.classList.add('hidden');
-  randomCoverButton.classList.add('hidden');
-
-  homeButton.classList.remove('hidden');
-  makeNewCoverButton.classList.remove('hidden');
-  viewSavedCoversButton.classList.remove('hidden');
 };
 
 function viewSavedCovers() {
@@ -167,16 +167,3 @@ function viewSavedCovers() {
   saveCoverButton.classList.add('hidden');
 };
 
-function viewHomePage() {
-  formView.classList.add('hidden');
-  savedView.classList.add('hidden');
-  
-  homeView.classList.remove('hidden');
-  
-  homeButton.classList.add('hidden');
-
-  randomCoverButton.classList.remove('hidden');
-  saveCoverButton.classList.remove('hidden');
-  viewSavedCoversButton.classList.remove('hidden');
-  makeNewCoverButton.classList.remove('hidden');
-};
