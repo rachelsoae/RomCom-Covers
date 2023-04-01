@@ -91,17 +91,7 @@ function viewMakeYourOwnCover() {
   makeNewCoverButton.classList.remove('hidden');
 };
 
-function viewSavedCovers() {
-  homeView.classList.add('hidden');
-  formView.classList.add('hidden');
-  homeButton.classList.remove('hidden');
-  savedView.classList.remove('hidden');
-  makeNewCoverButton.classList.remove('hidden');
-  randomCoverButton.classList.add('hidden');
-  saveCoverButton.classList.add('hidden');
-  savedCoverSection.innerHTML = '';
-  displaySavedCovers();
-};
+
 
 function viewHomePage() {
   formView.classList.add('hidden');
@@ -113,59 +103,6 @@ function viewHomePage() {
   viewSavedCoversButton.classList.remove('hidden');
   makeNewCoverButton.classList.remove('hidden');
   savedCoverSection.innerHTML = ``;
-};
-
-function viewMakeYourOwnCover() {
-  homeView.classList.add('hidden');
-  savedView.classList.add('hidden');
-
-  formView.classList.remove('hidden');
-
-  saveCoverButton.classList.add('hidden');
-  randomCoverButton.classList.add('hidden');
-
-  homeButton.classList.remove('hidden');
-  makeNewCoverButton.classList.remove('hidden');
-  viewSavedCoversButton.classList.remove('hidden');
-};
-
-function saveCover() {
-  console.log('saved cover click');
-  if (!savedCovers.includes(currentCover)) {
-    savedCovers.push(currentCover);
-    displaySavedCovers();
-  } else {
-    alert("This RomCom Cover has already been saved!");
-  }; 
-}
-
-function displaySavedCovers() {
-  for (var i = 0; i < savedCovers.length; i++) {
-    savedCoverSection.innerHTML += 
-    `
-    <section class="mini-cover">
-      <img class="cover-image" id="${savedCovers[i].id}" src="${savedCovers[i].coverImg}" alt="RomCom image should be displayed">
-      <h2 class="cover-title">${savedCovers[i].title}</h2>
-      <h3 class="tagline">A tale of <span class="tagline-1">${savedCovers[i].tagline1}</span> and <span class="tagline-2">${savedCovers[i].tagline2}</span></h3>
-      <img class="price-tag" src="./assets/price.png">
-      <img class="overlay" src="./assets/overlay.png">
-    </section>
-    `
-  };
-};
-
-function viewSavedCovers() {
-  homeView.classList.add('hidden');
-  formView.classList.add('hidden');
-
-  homeButton.classList.remove('hidden');
-  savedView.classList.remove('hidden');
-  makeNewCoverButton.classList.remove('hidden');
-  // I don't think we need this button?:
-  // viewSavedCoversButton.classList.remove('hidden');
-
-  randomCoverButton.classList.add('hidden');
-  saveCoverButton.classList.add('hidden');
 };
 
 function makeMyBook(event) {
@@ -192,6 +129,57 @@ function pushValuesToArray() {
   titles.push(userInputTitle.value);
   descriptors.push(userInputDesc1.value);
   descriptors.push(userInputDesc2.value);
+};
+
+
+function viewMakeYourOwnCover() {
+  homeView.classList.add('hidden');
+  savedView.classList.add('hidden');
+
+  formView.classList.remove('hidden');
+
+  saveCoverButton.classList.add('hidden');
+  randomCoverButton.classList.add('hidden');
+
+  homeButton.classList.remove('hidden');
+  makeNewCoverButton.classList.remove('hidden');
+  viewSavedCoversButton.classList.remove('hidden');
+};
+
+function saveCover() {
+  if (!savedCovers.includes(currentCover)) {
+    savedCovers.push(currentCover);
+    displaySavedCovers();
+  } else {
+    alert("This RomCom Cover has already been saved!");
+  }; 
+}
+
+function viewSavedCovers() {
+  homeView.classList.add('hidden');
+  formView.classList.add('hidden');
+  homeButton.classList.remove('hidden');
+  savedView.classList.remove('hidden');
+  makeNewCoverButton.classList.remove('hidden');
+  randomCoverButton.classList.add('hidden');
+  saveCoverButton.classList.add('hidden');
+  savedCoverSection.innerHTML = '';
+  displaySavedCovers();
+};
+
+function displaySavedCovers() {
+  for (var i = 0; i < savedCovers.length; i++) {
+    savedCoverSection.innerHTML += 
+    `
+    <section class="mini-cover">
+      <img class="cover-image" id="${savedCovers[i].id}" src="${savedCovers[i].coverImg}" alt="RomCom image should be displayed">
+      <h2 class="cover-title">${savedCovers[i].title}</h2>
+      <h3 class="tagline">A tale of <span class="tagline-1">${savedCovers[i].tagline1}</span> and <span class="tagline-2">${savedCovers[i].tagline2}</span></h3>
+      <img class="price-tag" src="./assets/price.png">
+      <img class="overlay" src="./assets/overlay.png">
+    </section>
+    `
+  };
 };
 
 //Deleting. Hint: How will you update the data model to achieve this?
