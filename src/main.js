@@ -154,25 +154,6 @@ function saveCover(){
   };
 };
 
-
-//Note: None of this needs to persist on page load
-
-// function changeHTML(){
-//   var size = savedCovers.length;
-//     for(var i=0; i<size; i++) {
-//   coverGrid.innerHTML += 
-//   ` <section class="main-cover">
-//         <img class="cover-image" id="${savedCovers[i].id}" src="${savedCovers[i].cover}">
-//         <h2 class="cover-title">${savedCovers[i].title}</h2>
-//         <h3 class="tagline">A tale of <span class="tagline-1">${savedCovers[i].tagline1}</span> and <span class="tagline-2">${savedCovers[i].tagline2}</span></h3>
-//         <img class="price-tag" src="./assets/price.png">
-//         <img class="overlay" src="./assets/overlay.png">
-//       </section>`
-//     };
-//   }    
-
-
-
 function showSavedCovers() {
   for(var i = 0; i < savedCovers.length; i++) {
     savedCoverSection.innerHTML += 
