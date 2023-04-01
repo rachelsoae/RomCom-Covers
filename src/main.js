@@ -1,28 +1,25 @@
 // Create variables targetting the relevant DOM elements here 👇
 
-// querySelector variables.
-
-// Cover elements.
+  // Cover elements:
 var coverImage = document.querySelector(".cover-image");
 var coverTitle = document.querySelector(".cover-title");
 var tagline1 = document.querySelector(".tagline-1");
 var tagline2 = document.querySelector(".tagline-2");
 
-// Buttons:
+  // Top Row Buttons:
 var homeButton = document.querySelector(".home-button");
 var randomCoverButton = document.querySelector(".random-cover-button");
 var saveCoverButton = document.querySelector(".save-cover-button");
 var viewSavedCoversButton = document.querySelector(".view-saved-button");
 var makeNewCoverButton = document.querySelector(".make-new-button");
-var makeMyBookButton = document.querySelector('.create-new-book-button');
 
-// View elements.
+  // Views:
 var homeView = document.querySelector(".home-view");
 var formView = document.querySelector(".form-view");
 var savedView = document.querySelector(".saved-view");
 var savedCoverSection = document.querySelector(".saved-covers-section");
 
-// Form elements.
+  // Form elements:
 var userInputCover = document.querySelector(".user-cover");
 var userInputTitle = document.querySelector(".user-title");
 var userInputDesc1 = document.querySelector(".user-desc1");
@@ -30,15 +27,22 @@ var userInputDesc2 = document.querySelector(".user-desc2");
 var createNewBookButton = document.querySelector(".create-new-book-button");
 
 // Add your event listeners here 👇
+
+  // Generate random covers:
 window.addEventListener("load", getRandomCover);
 randomCoverButton.addEventListener("click", getRandomCover);
+
+  // Change views:
 makeNewCoverButton.addEventListener("click", viewMakeYourOwnCover);
 viewSavedCoversButton.addEventListener("click", viewSavedCovers);
 homeButton.addEventListener("click", viewHomePage);
-createNewBookButton.addEventListener("click", createNewCover);
+
+  // Make your own cover:
+createNewBookButton.addEventListener("click", makeMyBook);
+
+  // Save & Delete covers:
 saveCoverButton.addEventListener("click", saveCover);
 savedCoverSection.addEventListener("dblclick", deleteCover);
-
 
 // Create your event handlers and other functions here 👇
 
@@ -50,11 +54,11 @@ savedCoverSection.addEventListener("dblclick", deleteCover);
 
 // Variables
 
-var savedCovers = [
-  createCover(covers[getRandomIndex(cover)], titles[getRandomIndex(title)], 
-  descriptors[getRandomIndex(descriptors)], 
-  descriptors[getRandomIndex(descriptors)])
-];
+// var savedCovers = [
+//   createCover(covers[getRandomIndex(cover)], titles[getRandomIndex(title)], 
+//   descriptors[getRandomIndex(descriptors)], 
+//   descriptors[getRandomIndex(descriptors)])
+// ];
 var currentCover;
 
 // We've provided two functions to get you started 
@@ -105,7 +109,7 @@ function viewSavedCovers() {
   randomCoverButton.classList.add('hidden');
   saveCoverButton.classList.add('hidden');
   savedCoverSection.innerHTML = '';
-  showSavedCovers();
+  displaySavedCovers();
 };
 
 function viewHomePage() {
@@ -120,8 +124,8 @@ function viewHomePage() {
   savedCoverSection.innerHTML = ``;
 };
 
-function showSavedCovers() {
-  for(var i = 0; i < savedCovers.length; i++) {
+function displaySavedCovers() {
+  for (var i = 0; i < savedCovers.length; i++) {
     savedCoverSection.innerHTML += 
     `
     <section class="mini-cover">
@@ -131,32 +135,34 @@ function showSavedCovers() {
       <img class="price-tag" src="./assets/price.png">
       <img class="overlay" src="./assets/overlay.png">
     </section>
-      `
+    `
   };
 };
 
-function saveCover(){
-  if(!savedCovers.includes(currentCover)){
+function saveCover() {
+  if (!savedCovers.includes(currentCover)) {
     savedCovers.push(currentCover);
-    showSavedCovers();
-  }else{
+    displaySavedCovers();
+  } else {
     alert("This RomCom Cover has already been saved!");
   };
 };
 
-function createNewCover(event) {
+function makeMyBook(event) {
   event.preventDefault();
-  console.log(createNewCover)
-  console.log(event)
+
   if(!userInputCover.value || !userInputTitle.value || !userInputDesc1.value || !userInputDesc2.value) {
   alert("Error “Please fill out all required fields. Thank you!");
-  }else {
+  } else {
     coverImage.src = userInputCover.value;
     coverTitle.innerText = userInputTitle.value;
     tagline1.innerText = userInputDesc1.value;
     tagline2.innerText = userInputDesc2.value;
+
     pushValuesToArray();
+
     viewHomePage();
+
     document.querySelector("form").reset();
   };
 };
