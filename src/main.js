@@ -130,6 +130,7 @@ function viewMakeYourOwnCover() {
 };
 
 function saveCover() {
+  console.log('saved cover click');
   if (!savedCovers.includes(currentCover)) {
     savedCovers.push(currentCover);
     displaySavedCovers();
@@ -167,3 +168,44 @@ function viewSavedCovers() {
   saveCoverButton.classList.add('hidden');
 };
 
+function makeMyBook(event) {
+  event.preventDefault();
+
+  if(!userInputCover.value || !userInputTitle.value || !userInputDesc1.value || !userInputDesc2.value) {
+  alert("Error “Please fill out all required fields. Thank you!");
+  } else {
+    coverImage.src = userInputCover.value;
+    coverTitle.innerText = userInputTitle.value;
+    tagline1.innerText = userInputDesc1.value;
+    tagline2.innerText = userInputDesc2.value;
+
+    pushValuesToArray();
+
+    viewHomePage();
+
+    document.querySelector("form").reset();
+  };
+};
+
+function pushValuesToArray() {
+  covers.push(userInputCover.value);
+  titles.push(userInputTitle.value);
+  descriptors.push(userInputDesc1.value);
+  descriptors.push(userInputDesc2.value);
+};
+
+//Deleting. Hint: How will you update the data model to achieve this?
+
+// function deleteCover(event) {
+//   CoverGrid.removeChild(event.target.parentNode)
+// };
+
+function deleteCover(event) {
+  var coverId = event.target.id;
+  for(var i = 0; i < savedCovers.length; i++) {
+    if(coverId === `${savedCovers[i].id}`) {
+      savedCovers.splice(i, 1);
+    };
+  };
+  viewSavedCovers();
+};
