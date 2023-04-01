@@ -30,7 +30,7 @@ var userInputCover = document.querySelector(".user-cover");
 var userInputTitle = document.querySelector(".user-title");
 var userInputDesc1 = document.querySelector(".user-desc1");
 var userInputDesc2 = document.querySelector(".user-desc2");
-var createNewBookButton = document.querySelector(".create-new-book-button");
+var makeMyBookButton = document.querySelector(".create-new-book-button");
 
 // Add your event listeners here 👇
 
@@ -44,7 +44,7 @@ viewSavedCoversButton.addEventListener("click", viewSavedCovers);
 homeButton.addEventListener("click", viewHomePage);
 
   // Make your own cover:
-createNewBookButton.addEventListener("click", makeMyBook);
+makeMyBookButton.addEventListener("click", makeMyBook);
 
   // Save & Delete covers:
 saveCoverButton.addEventListener("click", saveCover);
