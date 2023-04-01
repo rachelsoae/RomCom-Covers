@@ -136,47 +136,47 @@ function saveCover() {
     displaySavedCovers();
   } else {
     alert("This RomCom Cover has already been saved!");
-  };
+  }; 
+}
+
+function viewMakeYourOwnCover() {
+  homeView.classList.add('hidden');
+  savedView.classList.add('hidden');
+
+  formView.classList.remove('hidden');
+
+  saveCoverButton.classList.add('hidden');
+  randomCoverButton.classList.add('hidden');
+
+  homeButton.classList.remove('hidden');
+  makeNewCoverButton.classList.remove('hidden');
+  viewSavedCoversButton.classList.remove('hidden');
 };
 
-function makeMyBook(event) {
-  event.preventDefault();
+function viewSavedCovers() {
+  homeView.classList.add('hidden');
+  formView.classList.add('hidden');
 
-  if(!userInputCover.value || !userInputTitle.value || !userInputDesc1.value || !userInputDesc2.value) {
-  alert("Error “Please fill out all required fields. Thank you!");
-  } else {
-    coverImage.src = userInputCover.value;
-    coverTitle.innerText = userInputTitle.value;
-    tagline1.innerText = userInputDesc1.value;
-    tagline2.innerText = userInputDesc2.value;
+  homeButton.classList.remove('hidden');
+  savedView.classList.remove('hidden');
+  makeNewCoverButton.classList.remove('hidden');
+  // I don't think we need this button?:
+  // viewSavedCoversButton.classList.remove('hidden');
 
-    pushValuesToArray();
-
-    viewHomePage();
-
-    document.querySelector("form").reset();
-  };
+  randomCoverButton.classList.add('hidden');
+  saveCoverButton.classList.add('hidden');
 };
 
-function pushValuesToArray() {
-  covers.push(userInputCover.value);
-  titles.push(userInputTitle.value);
-  descriptors.push(userInputDesc1.value);
-  descriptors.push(userInputDesc2.value);
-};
+function viewHomePage() {
+  formView.classList.add('hidden');
+  savedView.classList.add('hidden');
+  
+  homeView.classList.remove('hidden');
+  
+  homeButton.classList.add('hidden');
 
-//Deleting. Hint: How will you update the data model to achieve this?
-
-// function deleteCover(event) {
-//   CoverGrid.removeChild(event.target.parentNode)
-// };
-
-function deleteCover(event) {
-  var coverId = event.target.id;
-  for(var i = 0; i < savedCovers.length; i++) {
-    if(coverId === `${savedCovers[i].id}`) {
-      savedCovers.splice(i, 1);
-    };
-  };
-  viewSavedCovers();
+  randomCoverButton.classList.remove('hidden');
+  saveCoverButton.classList.remove('hidden');
+  viewSavedCoversButton.classList.remove('hidden');
+  makeNewCoverButton.classList.remove('hidden');
 };
