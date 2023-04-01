@@ -46,7 +46,7 @@ savedCoverSection.addEventListener("dblclick", deleteCover);
 // var savedCovers = [
 //   createCover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows")
 // ];
-// var currentCover;
+
 
 // Variables
 
@@ -76,72 +76,63 @@ function createCover(imgSrc, title, descriptor1, descriptor2) {
 
 function getRandomCover() {
   currentCover = createCover(
-  covers[getRandomIndex(covers)], titles[getRandomIndex(titles)], descriptors[getRandomIndex(descriptors)], 
-  descriptors[getRandomIndex(descriptors)]);
+  covers[getRandomIndex(covers)], titles[getRandomIndex(titles)], descriptors[getRandomIndex(descriptors)], descriptors[getRandomIndex(descriptors)]);
 
   coverImage.src = currentCover.coverImg
   coverTitle.innerText = currentCover.title
   tagline1.innerText = currentCover.tagline1
   tagline2.innerText = currentCover.tagline2
-  };
-
-  function viewMakeYourOwnCover() {
-    homeView.classList.add('hidden');
-    savedView.classList.add('hidden');
-    formView.classList.remove('hidden');
-    saveCoverButton.classList.add('hidden');
-    randomCoverButton.classList.add('hidden');
-    homeButton.classList.remove('hidden');
-    makeNewCoverButton.classList.remove('hidden');
-    viewSavedCoversButton.classList.remove('hidden');
-    makeNewCoverButton.classList.remove('hidden');
-  };
-
-  function viewSavedCovers() {
-    homeView.classList.add('hidden');
-    formView.classList.add('hidden');
-    homeButton.classList.remove('hidden');
-    savedView.classList.remove('hidden');
-    makeNewCoverButton.classList.remove('hidden');
-    randomCoverButton.classList.add('hidden');
-    saveCoverButton.classList.add('hidden');
-    savedCoverSection.innerHTML = '';
-    showSavedCovers();
-
-  };
-
-  function viewHomePage() {
-    formView.classList.add('hidden');
-    savedView.classList.add('hidden');
-    homeView.classList.remove('hidden');
-    homeButton.classList.add('hidden');
-    randomCoverButton.classList.remove('hidden');
-    saveCoverButton.classList.remove('hidden');
-    viewSavedCoversButton.classList.remove('hidden');
-    makeNewCoverButton.classList.remove('hidden');
-    savedCoverSection.innerHTML = ``;
-  };
-
-function createNewCover(event) {
-  event.preventDefault();
-  if(!userInputCover.value || !userInputTitle.value || !userInputDesc1.value || !userInputDesc2.value) {
-   alert("Error “Please fill out all required fields. Thank you!");
-  } else {
-      coverImage.src = userInputCover.value;
-      coverTitle.innerText = userInputTitle.value;
-      tagline1.innerText = userInputDesc1.value;
-      tagline2.innerText = userInputDesc2.value;
-      pushValuesToArray();
-      viewHomePage();
-      document.querySelector("form").reset();
-    };
 };
 
-function pushValuesToArray() {
-  covers.push(userInputCover.value);
-  titles.push(userInputTitle.value);
-  descriptors.push(userInputDesc1.value);
-  descriptors.push(userInputDesc2.value);
+function viewMakeYourOwnCover() {
+  homeView.classList.add('hidden');
+  savedView.classList.add('hidden');
+  formView.classList.remove('hidden');
+  saveCoverButton.classList.add('hidden');
+  randomCoverButton.classList.add('hidden');
+  homeButton.classList.remove('hidden');
+  makeNewCoverButton.classList.remove('hidden');
+  viewSavedCoversButton.classList.remove('hidden');
+  makeNewCoverButton.classList.remove('hidden');
+};
+
+function viewSavedCovers() {
+  homeView.classList.add('hidden');
+  formView.classList.add('hidden');
+  homeButton.classList.remove('hidden');
+  savedView.classList.remove('hidden');
+  makeNewCoverButton.classList.remove('hidden');
+  randomCoverButton.classList.add('hidden');
+  saveCoverButton.classList.add('hidden');
+  savedCoverSection.innerHTML = '';
+  showSavedCovers();
+};
+
+function viewHomePage() {
+  formView.classList.add('hidden');
+  savedView.classList.add('hidden');
+  homeView.classList.remove('hidden');
+  homeButton.classList.add('hidden');
+  randomCoverButton.classList.remove('hidden');
+  saveCoverButton.classList.remove('hidden');
+  viewSavedCoversButton.classList.remove('hidden');
+  makeNewCoverButton.classList.remove('hidden');
+  savedCoverSection.innerHTML = ``;
+};
+
+function showSavedCovers() {
+  for(var i = 0; i < savedCovers.length; i++) {
+    savedCoverSection.innerHTML += 
+    `
+    <section class="mini-cover">
+      <img class="cover-image" id="${savedCovers[i].id}" src="${savedCovers[i].coverImg}" alt="RomCom image should be displayed">
+      <h2 class="cover-title">${savedCovers[i].title}</h2>
+      <h3 class="tagline">A tale of <span class="tagline-1">${savedCovers[i].tagline1}</span> and <span class="tagline-2">${savedCovers[i].tagline2}</span></h3>
+      <img class="price-tag" src="./assets/price.png">
+      <img class="overlay" src="./assets/overlay.png">
+    </section>
+      `
+  };
 };
 
 function saveCover(){
@@ -153,19 +144,28 @@ function saveCover(){
   };
 };
 
-function showSavedCovers() {
-  for(var i = 0; i < savedCovers.length; i++) {
-    savedCoverSection.innerHTML += 
-    `
-    <section class="mini-cover">
-        <img class="cover-image" id="${savedCovers[i].id}" src="${savedCovers[i].coverImg}" alt="RomCom image should be displayed">
-        <h2 class="cover-title">${savedCovers[i].title}</h2>
-        <h3 class="tagline">A tale of <span class="tagline-1">${savedCovers[i].tagline1}</span> and <span class="tagline-2">${savedCovers[i].tagline2}</span></h3>
-        <img class="price-tag" src="./assets/price.png">
-        <img class="overlay" src="./assets/overlay.png">
-    </section>
-    `
-    };
+function createNewCover(event) {
+  event.preventDefault();
+  console.log(createNewCover)
+  console.log(event)
+  if(!userInputCover.value || !userInputTitle.value || !userInputDesc1.value || !userInputDesc2.value) {
+  alert("Error “Please fill out all required fields. Thank you!");
+  }else {
+    coverImage.src = userInputCover.value;
+    coverTitle.innerText = userInputTitle.value;
+    tagline1.innerText = userInputDesc1.value;
+    tagline2.innerText = userInputDesc2.value;
+    pushValuesToArray();
+    viewHomePage();
+    document.querySelector("form").reset();
+  };
+};
+
+function pushValuesToArray() {
+  covers.push(userInputCover.value);
+  titles.push(userInputTitle.value);
+  descriptors.push(userInputDesc1.value);
+  descriptors.push(userInputDesc2.value);
 };
 
 //Deleting. Hint: How will you update the data model to achieve this?
