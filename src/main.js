@@ -1,6 +1,6 @@
-// Create variables targetting the relevant DOM elements here 👇
-// We've provided a few variables below
-// sample cover:
+// Create variables targeting the relevant DOM elements here 👇
+
+// Sample cover:
   // createCover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows")
 
 var savedCovers = [];
@@ -17,7 +17,7 @@ var homeButton = document.querySelector(".home-button");
 var randomCoverButton = document.querySelector(".random-cover-button");
 var saveCoverButton = document.querySelector(".save-cover-button");
 var viewSavedCoversButton = document.querySelector(".view-saved-button");
-var makeNewCoverButton = document.querySelector(".make-new-button");
+var makeYourOwnCoverButton = document.querySelector(".make-new-button");
 
   // Views:
 var homeView = document.querySelector(".home-view");
@@ -39,7 +39,7 @@ window.addEventListener("load", getRandomCover);
 randomCoverButton.addEventListener("click", getRandomCover);
 
   // Change views:
-makeNewCoverButton.addEventListener("click", viewMakeYourOwnCover);
+makeYourOwnCoverButton.addEventListener("click", viewMakeYourOwnCover);
 viewSavedCoversButton.addEventListener("click", viewSavedCovers);
 homeButton.addEventListener("click", viewHomePage);
 
@@ -86,9 +86,8 @@ function viewMakeYourOwnCover() {
   saveCoverButton.classList.add('hidden');
   randomCoverButton.classList.add('hidden');
   homeButton.classList.remove('hidden');
-  makeNewCoverButton.classList.remove('hidden');
+  makeYourOwnCoverButton.classList.remove('hidden');
   viewSavedCoversButton.classList.remove('hidden');
-  makeNewCoverButton.classList.remove('hidden');
 };
 
 
@@ -101,7 +100,7 @@ function viewHomePage() {
   randomCoverButton.classList.remove('hidden');
   saveCoverButton.classList.remove('hidden');
   viewSavedCoversButton.classList.remove('hidden');
-  makeNewCoverButton.classList.remove('hidden');
+  makeYourOwnCoverButton.classList.remove('hidden');
   savedCoverSection.innerHTML = ``;
 };
 
@@ -142,7 +141,7 @@ function viewMakeYourOwnCover() {
   randomCoverButton.classList.add('hidden');
 
   homeButton.classList.remove('hidden');
-  makeNewCoverButton.classList.remove('hidden');
+  makeYourOwnCoverButton.classList.remove('hidden');
   viewSavedCoversButton.classList.remove('hidden');
 };
 
@@ -160,7 +159,7 @@ function viewSavedCovers() {
   formView.classList.add('hidden');
   homeButton.classList.remove('hidden');
   savedView.classList.remove('hidden');
-  makeNewCoverButton.classList.remove('hidden');
+  makeYourOwnCoverButton.classList.remove('hidden');
   randomCoverButton.classList.add('hidden');
   saveCoverButton.classList.add('hidden');
   savedCoverSection.innerHTML = '';
