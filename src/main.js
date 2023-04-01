@@ -37,7 +37,7 @@ viewSavedCoversButton.addEventListener("click", viewSavedCovers);
 homeButton.addEventListener("click", viewHomePage);
 createNewBookButton.addEventListener("click", createNewCover);
 saveCoverButton.addEventListener("click", saveCover);
-savedCoverSection.addEventListener("dblclick", removeCover);
+savedCoverSection.addEventListener("dblclick", deleteCover);
 
 
 // Create your event handlers and other functions here 👇
@@ -76,7 +76,8 @@ function createCover(imgSrc, title, descriptor1, descriptor2) {
 
 function getRandomCover() {
   currentCover = createCover(
-  covers[getRandomIndex(covers)], titles[getRandomIndex(titles)], descriptors[getRandomIndex(descriptors)], descriptors[getRandomIndex(descriptors)]);
+  covers[getRandomIndex(covers)], titles[getRandomIndex(titles)], descriptors[getRandomIndex(descriptors)], 
+  descriptors[getRandomIndex(descriptors)]);
 
   coverImage.src = currentCover.coverImg
   coverTitle.innerText = currentCover.title
@@ -102,8 +103,6 @@ function getRandomCover() {
     homeButton.classList.remove('hidden');
     savedView.classList.remove('hidden');
     makeNewCoverButton.classList.remove('hidden');
-    // I don't think we need this button?:
-    //viewSavedCoversButton.classList.add('hidden');
     randomCoverButton.classList.add('hidden');
     saveCoverButton.classList.add('hidden');
     savedCoverSection.innerHTML = '';
@@ -154,31 +153,12 @@ function saveCover(){
   };
 };
 
-
-//Note: None of this needs to persist on page load
-
-// function changeHTML(){
-//   var size = savedCovers.length;
-//     for(var i=0; i<size; i++) {
-//   coverGrid.innerHTML += 
-//   ` <section class="main-cover">
-//         <img class="cover-image" id="${savedCovers[i].id}" src="${savedCovers[i].cover}">
-//         <h2 class="cover-title">${savedCovers[i].title}</h2>
-//         <h3 class="tagline">A tale of <span class="tagline-1">${savedCovers[i].tagline1}</span> and <span class="tagline-2">${savedCovers[i].tagline2}</span></h3>
-//         <img class="price-tag" src="./assets/price.png">
-//         <img class="overlay" src="./assets/overlay.png">
-//       </section>`
-//     };
-//   }    
-
-
-
 function showSavedCovers() {
   for(var i = 0; i < savedCovers.length; i++) {
     savedCoverSection.innerHTML += 
     `
     <section class="mini-cover">
-        <img class="cover-image" id="${savedCovers[i].id}" src="${savedCovers[i].cover}">
+        <img class="cover-image" id="${savedCovers[i].id}" src="${savedCovers[i].coverImg}" alt="RomCom image should be displayed">
         <h2 class="cover-title">${savedCovers[i].title}</h2>
         <h3 class="tagline">A tale of <span class="tagline-1">${savedCovers[i].tagline1}</span> and <span class="tagline-2">${savedCovers[i].tagline2}</span></h3>
         <img class="price-tag" src="./assets/price.png">
@@ -190,11 +170,11 @@ function showSavedCovers() {
 
 //Deleting. Hint: How will you update the data model to achieve this?
 
-// function deletePoster(event) {
+// function deleteCover(event) {
 //   CoverGrid.removeChild(event.target.parentNode)
 // };
 
-function removeCover(event) {
+function deleteCover(event) {
   var coverId = event.target.id;
   for(var i = 0; i < savedCovers.length; i++) {
     if(coverId === `${savedCovers[i].id}`) {
