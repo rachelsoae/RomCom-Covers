@@ -80,27 +80,32 @@ function getRandomCover() {
 };
 
 function viewMakeYourOwnCover() {
+  formView.classList.remove('hidden');
+
+  homeButton.classList.remove('hidden');
+  viewSavedCoversButton.classList.remove('hidden');
+  
   homeView.classList.add('hidden');
   savedView.classList.add('hidden');
-  formView.classList.remove('hidden');
+
   saveCoverButton.classList.add('hidden');
   randomCoverButton.classList.add('hidden');
-  homeButton.classList.remove('hidden');
-  makeYourOwnCoverButton.classList.remove('hidden');
-  viewSavedCoversButton.classList.remove('hidden');
+  makeYourOwnCoverButton.classList.add('hidden');
 };
-
-
 
 function viewHomePage() {
   formView.classList.add('hidden');
   savedView.classList.add('hidden');
+
   homeView.classList.remove('hidden');
+
   homeButton.classList.add('hidden');
+
   randomCoverButton.classList.remove('hidden');
   saveCoverButton.classList.remove('hidden');
   viewSavedCoversButton.classList.remove('hidden');
   makeYourOwnCoverButton.classList.remove('hidden');
+
   savedCoverSection.innerHTML = ``;
 };
 
@@ -130,21 +135,6 @@ function pushValuesToArray() {
   descriptors.push(userInputDesc2.value);
 };
 
-
-function viewMakeYourOwnCover() {
-  homeView.classList.add('hidden');
-  savedView.classList.add('hidden');
-
-  formView.classList.remove('hidden');
-
-  saveCoverButton.classList.add('hidden');
-  randomCoverButton.classList.add('hidden');
-
-  homeButton.classList.remove('hidden');
-  makeYourOwnCoverButton.classList.remove('hidden');
-  viewSavedCoversButton.classList.remove('hidden');
-};
-
 function saveCover() {
   if (!savedCovers.includes(currentCover)) {
     savedCovers.push(currentCover);
@@ -157,11 +147,16 @@ function saveCover() {
 function viewSavedCovers() {
   homeView.classList.add('hidden');
   formView.classList.add('hidden');
+
   homeButton.classList.remove('hidden');
-  savedView.classList.remove('hidden');
   makeYourOwnCoverButton.classList.remove('hidden');
+
   randomCoverButton.classList.add('hidden');
   saveCoverButton.classList.add('hidden');
+  viewSavedCoversButton.classList.add('hidden');
+
+  savedView.classList.remove('hidden');
+
   savedCoverSection.innerHTML = '';
   displaySavedCovers();
 };
