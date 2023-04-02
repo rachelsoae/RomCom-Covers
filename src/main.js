@@ -144,10 +144,8 @@ function saveCover(){
   };
 };
 
-function createNewCover(event) {
+function createNewCover() {
   event.preventDefault();
-  console.log(createNewCover)
-  console.log(event)
   if(!userInputCover.value || !userInputTitle.value || !userInputDesc1.value || !userInputDesc2.value) {
   alert("Error “Please fill out all required fields. Thank you!");
   }else {
