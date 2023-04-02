@@ -2,7 +2,7 @@
 
 ### Abstract:
 [//]: <> (Briefly describe what you built and its features. What problem is the app solving? How does this application solve that problem?)
-We created a fun and interactive website that allows users to create and save a personalized collection of romance novel covers. Users can create custom covers using a form, or they can ask the program to generate random covers for them. Whether custom-created or randomly generated, users can save their favorite covers to the site, and can also delete covers they no longer want or need. User input elements including images, titles, and descriptors are also saved and added into the random generation process, so when they click to receive a random cover, their custom inputs can be included.
+We created a fun and interactive website that allows users to create and save a personalized collection of romance novel covers. Users can create custom covers using a form, or they can ask the program to generate random covers for them. User input elements including images, titles, and descriptors are also saved and added into the random generation process, so when they click to receive a random cover, their custom inputs can be included. Whether custom-created or randomly generated, users can save their favorite covers to the site, and can also delete covers they no longer want or need.
 
 ### Installation Instructions:
 [//]: <> (What steps does a person have to take to get your app cloned down and running?)
@@ -13,7 +13,7 @@ We created a fun and interactive website that allows users to create and save a 
 
 ### Preview of App:
 [//]: <> (Provide ONE gif or screenshot of your application - choose the "coolest" piece of functionality to show off.)
-
+![RomCom site preview]
 
 ### Context:
 [//]: <> (Give some context for the project here. How long did you have to work on it? How far into the Turing program are you?)
