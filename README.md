@@ -23,8 +23,7 @@ When we started the project, Rachel and Parvin were starting week 2 of Mod 1. Th
 
 ### Contributors:
 [//]: <> (Who worked on this application? Link to their GitHubs.)
-[Rachel Soae Prather] (https://github.com/rachelsoae)
-[Parvin Sattorova](https://github.com/Sulton88Mehron90)
+[Rachel Soae Prather](https://github.com/rachelsoae) and [Parvin Sattorova](https://github.com/Sulton88Mehron90)
 
 ### Learning Goals:
 [//]: <> (What were the learning goals of this project? What tech did you work with?)
