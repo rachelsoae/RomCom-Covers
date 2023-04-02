@@ -1,8 +1,5 @@
 // Create variables targeting the relevant DOM elements here 👇
 
-// Sample cover:
-  // createCover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows")
-
 var savedCovers = [];
 var currentCover;
 
@@ -12,7 +9,7 @@ var coverTitle = document.querySelector(".cover-title");
 var tagline1 = document.querySelector(".tagline-1");
 var tagline2 = document.querySelector(".tagline-2");
 
-  // Top Row Buttons:
+  // Control Buttons:
 var homeButton = document.querySelector(".home-button");
 var randomCoverButton = document.querySelector(".random-cover-button");
 var saveCoverButton = document.querySelector(".save-cover-button");
@@ -177,12 +174,6 @@ function displaySavedCovers() {
     `
   };
 };
-
-//Deleting. Hint: How will you update the data model to achieve this?
-
-// function deleteCover(event) {
-//   CoverGrid.removeChild(event.target.parentNode)
-// };
 
 function deleteCover(event) {
   var coverId = event.target.id;
