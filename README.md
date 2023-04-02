@@ -13,7 +13,7 @@ We created a fun and interactive website that allows users to create and save a 
 
 ### Preview of App:
 [//]: <> (Provide ONE gif or screenshot of your application - choose the "coolest" piece of functionality to show off.)
-![RomCom site preview]
+![customize and save cover preview](https://i.imgur.com/tZOKf1u.gif)
 
 ### Context:
 [//]: <> (Give some context for the project here. How long did you have to work on it? How far into the Turing program are you?)
