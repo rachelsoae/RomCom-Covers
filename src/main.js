@@ -110,10 +110,12 @@ function makeMyBook(event) {
   if(!userInputCover.value || !userInputTitle.value || !userInputDesc1.value || !userInputDesc2.value) {
   alert("Error “Please fill out all required fields. Thank you!");
   } else {
-    coverImage.src = userInputCover.value;
-    coverTitle.innerText = userInputTitle.value;
-    tagline1.innerText = userInputDesc1.value;
-    tagline2.innerText = userInputDesc2.value;
+    currentCover = createCover(userInputCover.value, userInputTitle.value, userInputDesc1.value, userInputDesc2.value)
+
+    coverImage.src = currentCover.coverImg
+    coverTitle.innerText = currentCover.title
+    tagline1.innerText = currentCover.tagline1
+    tagline2.innerText = currentCover.tagline2
 
     pushValuesToArray();
 
@@ -148,7 +150,7 @@ function viewMakeYourOwnCover() {
 function saveCover() {
   if (!savedCovers.includes(currentCover)) {
     savedCovers.push(currentCover);
-    displaySavedCovers();
+    displaySavedCovers(); 
   } else {
     alert("This RomCom Cover has already been saved!");
   }; 
@@ -157,11 +159,14 @@ function saveCover() {
 function viewSavedCovers() {
   homeView.classList.add('hidden');
   formView.classList.add('hidden');
+
   homeButton.classList.remove('hidden');
   savedView.classList.remove('hidden');
   makeYourOwnCoverButton.classList.remove('hidden');
+
   randomCoverButton.classList.add('hidden');
   saveCoverButton.classList.add('hidden');
+
   savedCoverSection.innerHTML = '';
   displaySavedCovers();
 };
