@@ -8,7 +8,7 @@ We created a fun and interactive web application that allows users to create and
 [//]: <> (What steps does a person have to take to get your app cloned down and running?)
 1. Fork this repository
 2. Clone down your new, forked repo
-3. cd into the repository
+3. `cd` into the repository
 4. Run `open index.html` to automatically open the site in your browser
 
 ### Preview of App:
