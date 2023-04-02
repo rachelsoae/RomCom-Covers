@@ -1,34 +1,19 @@
-# RomCom
-
-A boilerplate repo. 
-
-## Set Up
-1. ONE teammate: fork this boilerplate repository 
-2. Clone down your new, forked repo
-3. cd into the repository
-4. Open it in your text editor
-5. View the project in the browser by running open index.html in your terminal
-6. Add all project partners and your assigned instructor as collaborators on the repository
-
-You will not need to worry about importing/exporting the arrays from the data.js file because they are linked via the script in the `index.html` file.  
-
-The project spec & rubric can be found [here](https://frontend.turing.io/projects/module-1/romcom-pair.html)
-
-______________________________________________________  
-# README Template  
-Before turning this project in, erase this line and everything above it and fill in the info below.  
-______________________________________________________  
-
 # RomCom  
 
 ### Abstract:
 [//]: <> (Briefly describe what you built and its features. What problem is the app solving? How does this application solve that problem?)
+We created a fun and interactive website that allows users to create and save a personalized collection of romance novel covers. Users can create custom covers using a form, or they can ask the program to generate random covers for them. Whether custom-created or randomly generated, users can save their favorite covers to the site, and can also delete covers they no longer want or need. User input elements including images, titles, and descriptors are also saved and added into the random generation process, so when they click to receive a random cover, their custom inputs can be included.
 
 ### Installation Instructions:
 [//]: <> (What steps does a person have to take to get your app cloned down and running?)
+1. Fork this repository
+2. Clone down your new, forked repo
+3. cd into the repository
+4. Run `open index.html` to automatically open the site in your browser
 
 ### Preview of App:
 [//]: <> (Provide ONE gif or screenshot of your application - choose the "coolest" piece of functionality to show off.)
+
 
 ### Context:
 [//]: <> (Give some context for the project here. How long did you have to work on it? How far into the Turing program are you?)
