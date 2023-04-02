@@ -1,8 +1,5 @@
 // Create variables targeting the relevant DOM elements here 👇
 
-// Sample cover:
-  // createCover("http://3.bp.blogspot.com/-iE4p9grvfpQ/VSfZT0vH2UI/AAAAAAAANq8/wwQZssi-V5g/s1600/Do%2BNot%2BForsake%2BMe%2B-%2BImage.jpg", "Sunsets and Sorrows", "sunsets", "sorrows")
-
 var savedCovers = [];
 var currentCover;
 
@@ -12,7 +9,7 @@ var coverTitle = document.querySelector(".cover-title");
 var tagline1 = document.querySelector(".tagline-1");
 var tagline2 = document.querySelector(".tagline-2");
 
-  // Top Row Buttons:
+  // Control Buttons:
 var homeButton = document.querySelector(".home-button");
 var randomCoverButton = document.querySelector(".random-cover-button");
 var saveCoverButton = document.querySelector(".save-cover-button");
@@ -80,27 +77,32 @@ function getRandomCover() {
 };
 
 function viewMakeYourOwnCover() {
+  formView.classList.remove('hidden');
+
+  homeButton.classList.remove('hidden');
+  viewSavedCoversButton.classList.remove('hidden');
+  
   homeView.classList.add('hidden');
   savedView.classList.add('hidden');
-  formView.classList.remove('hidden');
+
   saveCoverButton.classList.add('hidden');
   randomCoverButton.classList.add('hidden');
-  homeButton.classList.remove('hidden');
-  makeYourOwnCoverButton.classList.remove('hidden');
-  viewSavedCoversButton.classList.remove('hidden');
+  makeYourOwnCoverButton.classList.add('hidden');
 };
-
-
 
 function viewHomePage() {
   formView.classList.add('hidden');
   savedView.classList.add('hidden');
+
   homeView.classList.remove('hidden');
+
   homeButton.classList.add('hidden');
+
   randomCoverButton.classList.remove('hidden');
   saveCoverButton.classList.remove('hidden');
   viewSavedCoversButton.classList.remove('hidden');
   makeYourOwnCoverButton.classList.remove('hidden');
+
   savedCoverSection.innerHTML = ``;
 };
 
@@ -132,21 +134,6 @@ function pushValuesToArray() {
   descriptors.push(userInputDesc2.value);
 };
 
-
-function viewMakeYourOwnCover() {
-  homeView.classList.add('hidden');
-  savedView.classList.add('hidden');
-
-  formView.classList.remove('hidden');
-
-  saveCoverButton.classList.add('hidden');
-  randomCoverButton.classList.add('hidden');
-
-  homeButton.classList.remove('hidden');
-  makeYourOwnCoverButton.classList.remove('hidden');
-  viewSavedCoversButton.classList.remove('hidden');
-};
-
 function saveCover() {
   if (!savedCovers.includes(currentCover)) {
     savedCovers.push(currentCover);
@@ -161,11 +148,13 @@ function viewSavedCovers() {
   formView.classList.add('hidden');
 
   homeButton.classList.remove('hidden');
-  savedView.classList.remove('hidden');
   makeYourOwnCoverButton.classList.remove('hidden');
 
   randomCoverButton.classList.add('hidden');
   saveCoverButton.classList.add('hidden');
+  viewSavedCoversButton.classList.add('hidden');
+
+  savedView.classList.remove('hidden');
 
   savedCoverSection.innerHTML = '';
   displaySavedCovers();
@@ -176,7 +165,7 @@ function displaySavedCovers() {
     savedCoverSection.innerHTML += 
     `
     <section class="mini-cover">
-      <img class="cover-image" id="${savedCovers[i].id}" src="${savedCovers[i].coverImg}" alt="RomCom image should be displayed">
+      <img class="cover-image" id="${savedCovers[i].id}" src="${savedCovers[i].coverImg}" alt="miniature RomCom cover">
       <h2 class="cover-title">${savedCovers[i].title}</h2>
       <h3 class="tagline">A tale of <span class="tagline-1">${savedCovers[i].tagline1}</span> and <span class="tagline-2">${savedCovers[i].tagline2}</span></h3>
       <img class="price-tag" src="./assets/price.png">
@@ -185,12 +174,6 @@ function displaySavedCovers() {
     `
   };
 };
-
-//Deleting. Hint: How will you update the data model to achieve this?
-
-// function deleteCover(event) {
-//   CoverGrid.removeChild(event.target.parentNode)
-// };
 
 function deleteCover(event) {
   var coverId = event.target.id;
