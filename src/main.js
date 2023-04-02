@@ -90,8 +90,6 @@ function viewMakeYourOwnCover() {
   viewSavedCoversButton.classList.remove('hidden');
 };
 
-
-
 function viewHomePage() {
   formView.classList.add('hidden');
   savedView.classList.add('hidden');
@@ -131,7 +129,6 @@ function pushValuesToArray() {
   descriptors.push(userInputDesc1.value);
   descriptors.push(userInputDesc2.value);
 };
-
 
 function viewMakeYourOwnCover() {
   homeView.classList.add('hidden');
@@ -185,12 +182,6 @@ function displaySavedCovers() {
     `
   };
 };
-
-//Deleting. Hint: How will you update the data model to achieve this?
-
-// function deleteCover(event) {
-//   CoverGrid.removeChild(event.target.parentNode)
-// };
 
 function deleteCover(event) {
   var coverId = event.target.id;
