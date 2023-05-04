@@ -138,19 +138,34 @@ function saveCover() {
   }; 
 }
 
+// function displaySavedCovers() {
+//   for (var i = 0; i < savedCovers.length; i++) {
+//     savedCoverSection.innerHTML += 
+//     `
+//     <section class="mini-cover">
+//       <img class="cover-image" id="${savedCovers[i].id}" src="${savedCovers[i].coverImg}" alt="miniature RomCom cover">
+//       <h2 class="cover-title">${savedCovers[i].title}</h2>
+//       <h3 class="tagline">A tale of <span class="tagline-1">${savedCovers[i].tagline1}</span> and <span class="tagline-2">${savedCovers[i].tagline2}</span></h3>
+//       <img class="price-tag" src="./assets/price.png">
+//       <img class="overlay" src="./assets/overlay.png">
+//     </section>
+//     `
+//   };
+// };
+
 function displaySavedCovers() {
-  for (var i = 0; i < savedCovers.length; i++) {
+  savedCovers.forEach(cover => {
     savedCoverSection.innerHTML += 
-    `
-    <section class="mini-cover">
-      <img class="cover-image" id="${savedCovers[i].id}" src="${savedCovers[i].coverImg}" alt="miniature RomCom cover">
-      <h2 class="cover-title">${savedCovers[i].title}</h2>
-      <h3 class="tagline">A tale of <span class="tagline-1">${savedCovers[i].tagline1}</span> and <span class="tagline-2">${savedCovers[i].tagline2}</span></h3>
-      <img class="price-tag" src="./assets/price.png">
-      <img class="overlay" src="./assets/overlay.png">
-    </section>
-    `
-  };
+        `
+        <section class="mini-cover">
+          <img class="cover-image" id="${cover.id}" src="${cover.coverImg}" alt="miniature RomCom cover">
+          <h2 class="cover-title">${cover.title}</h2>
+          <h3 class="tagline">A tale of <span class="tagline-1">${cover.tagline1}</span> and <span class="tagline-2">${cover.tagline2}</span></h3>
+          <img class="price-tag" src="./assets/price.png">
+          <img class="overlay" src="./assets/overlay.png">
+        </section>
+        `
+  });
 };
 
 function deleteCover(event) {
