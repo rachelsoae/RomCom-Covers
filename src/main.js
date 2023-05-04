@@ -41,7 +41,7 @@ viewSavedCoversButton.addEventListener("click", viewSavedCovers);
 homeButton.addEventListener("click", viewHomePage);
 
   // Make your own cover:
-makeMyBookButton.addEventListener("click", makeMyBook);
+makeMyBookButton.addEventListener("click", makeCustomBook);
 
   // Save & Delete covers:
 saveCoverButton.addEventListener("click", saveCover);
@@ -78,10 +78,7 @@ function getRandomCover() {
   currentCover = createCover(
   covers[getRandomIndex(covers)], titles[getRandomIndex(titles)], descriptors[getRandomIndex(descriptors)], descriptors[getRandomIndex(descriptors)]);
 
-  coverImage.src = currentCover.coverImg
-  coverTitle.innerText = currentCover.title
-  tagline1.innerText = currentCover.tagline1
-  tagline2.innerText = currentCover.tagline2
+  displayUpdatedCover(currentCover);
 };
 
 function viewMakeYourOwnCover() {
@@ -120,7 +117,7 @@ function viewSavedCovers() {
   displaySavedCovers();
 };
 
-function makeMyBook(event) {
+function makeCustomBook(event) {
   event.preventDefault();
 
   if(!userInputCover.value || !userInputTitle.value || !userInputDesc1.value || !userInputDesc2.value) {
@@ -128,10 +125,7 @@ function makeMyBook(event) {
   } else {
     currentCover = createCover(userInputCover.value, userInputTitle.value, userInputDesc1.value, userInputDesc2.value)
 
-    coverImage.src = currentCover.coverImg
-    coverTitle.innerText = currentCover.title
-    tagline1.innerText = currentCover.tagline1
-    tagline2.innerText = currentCover.tagline2
+    displayUpdatedCover(currentCover);
 
     pushValuesToArray();
 
@@ -180,4 +174,12 @@ function deleteCover(event) {
     };
   };
   viewSavedCovers();
+};
+
+function displayUpdatedCover(cover) {
+  coverImage.src = cover.coverImg
+  coverTitle.innerText = cover.title
+  tagline1.innerText = cover.tagline1
+  tagline2.innerText = cover.tagline2
+  return cover;
 };
