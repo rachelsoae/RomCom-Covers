@@ -52,7 +52,7 @@ function createCover(imgSrc, title, descriptor1, descriptor2) {
     tagline1: descriptor1,
     tagline2: descriptor2
   };
-  return cover
+  return cover;
 };
 
 //
@@ -103,8 +103,6 @@ function viewSavedCovers() {
   hide(randomCoverButton);
   hide(saveCoverButton);
   hide(viewSavedCoversButton);
-
-  savedCoverSection.innerHTML = '';
   displaySavedCovers();
 };
 
@@ -112,7 +110,7 @@ function makeCustomBook(event) {
   event.preventDefault();
 
   if(!userInputCover.value || !userInputTitle.value || !userInputDesc1.value || !userInputDesc2.value) {
-    alert("Error “Please fill out all required fields. Thank you!");
+    alert("Error “Please fill out all fields. Thank you!");
   } else {
     currentCover = createCover(userInputCover.value, userInputTitle.value, userInputDesc1.value, userInputDesc2.value)
     displayUpdatedCover(currentCover);
@@ -130,15 +128,16 @@ function saveCustomInputs() {
 };
 
 function saveCover() {
-  if (!savedCovers.includes(currentCover)) {
-    savedCovers.push(currentCover);
-    displaySavedCovers(); 
+  if (savedCovers.includes(currentCover)) {
+    alert("This cover is already saved 😊");
   } else {
-    alert("This RomCom Cover has already been saved!");
+    savedCovers.push(currentCover);
+    displaySavedCovers();
   }; 
-}
+};
 
 function displaySavedCovers() {
+  savedCoverSection.innerHTML = '';
   savedCovers.forEach(cover => {
     savedCoverSection.innerHTML += 
     `
@@ -153,16 +152,16 @@ function displaySavedCovers() {
   });
 };
 
+function displayUpdatedCover(cover) {
+  coverImage.src = cover.coverImg;
+  coverTitle.innerText = cover.title;
+  tagline1.innerText = cover.tagline1;
+  tagline2.innerText = cover.tagline2;
+  return cover;
+};
+
 function deleteCover(event) {
   var coverId = parseInt(event.target.id);
   savedCovers = savedCovers.filter(cover => coverId !== cover.id);
   viewSavedCovers();
-};
-
-function displayUpdatedCover(cover) {
-  coverImage.src = cover.coverImg
-  coverTitle.innerText = cover.title
-  tagline1.innerText = cover.tagline1
-  tagline2.innerText = cover.tagline2
-  return cover;
 };
