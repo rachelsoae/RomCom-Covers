@@ -66,6 +66,14 @@ function createCover(imgSrc, title, descriptor1, descriptor2) {
   return cover
 };
 
+function show(element) {
+  element.classList.remove('hidden');
+};
+
+function hide(element) {
+  element.classList.add('hidden');
+};
+
 function getRandomCover() {
   currentCover = createCover(
   covers[getRandomIndex(covers)], titles[getRandomIndex(titles)], descriptors[getRandomIndex(descriptors)], descriptors[getRandomIndex(descriptors)]);
