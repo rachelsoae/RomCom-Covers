@@ -3,26 +3,22 @@
 var savedCovers = [];
 var currentCover;
 
-  // Cover elements:
 var coverImage = document.querySelector(".cover-image");
 var coverTitle = document.querySelector(".cover-title");
 var tagline1 = document.querySelector(".tagline-1");
 var tagline2 = document.querySelector(".tagline-2");
 
-  // Control Buttons:
 var homeButton = document.querySelector(".home-button");
 var randomCoverButton = document.querySelector(".random-cover-button");
 var saveCoverButton = document.querySelector(".save-cover-button");
 var viewSavedCoversButton = document.querySelector(".view-saved-button");
 var makeYourOwnCoverButton = document.querySelector(".make-new-button");
 
-  // Views:
 var homeView = document.querySelector(".home-view");
 var formView = document.querySelector(".form-view");
 var savedView = document.querySelector(".saved-view");
 var savedCoverSection = document.querySelector(".saved-covers-section");
 
-  // Form elements:
 var userInputCover = document.querySelector(".user-cover");
 var userInputTitle = document.querySelector(".user-title");
 var userInputDesc1 = document.querySelector(".user-desc1");
@@ -31,19 +27,12 @@ var makeMyBookButton = document.querySelector(".create-new-book-button");
 
 // Add your event listeners here 👇
 
-  // Generate random covers:
 window.addEventListener("load", getRandomCover);
 randomCoverButton.addEventListener("click", getRandomCover);
-
-  // Change views:
 makeYourOwnCoverButton.addEventListener("click", viewMakeYourOwnCover);
 viewSavedCoversButton.addEventListener("click", viewSavedCovers);
 homeButton.addEventListener("click", viewHomePage);
-
-  // Make your own cover:
 makeMyBookButton.addEventListener("click", makeCustomBook);
-
-  // Save & Delete covers:
 saveCoverButton.addEventListener("click", saveCover);
 savedCoverSection.addEventListener("dblclick", deleteCover);
 
@@ -65,6 +54,8 @@ function createCover(imgSrc, title, descriptor1, descriptor2) {
   };
   return cover
 };
+
+//
 
 function show(element) {
   element.classList.remove('hidden');
@@ -121,21 +112,17 @@ function makeCustomBook(event) {
   event.preventDefault();
 
   if(!userInputCover.value || !userInputTitle.value || !userInputDesc1.value || !userInputDesc2.value) {
-  alert("Error “Please fill out all required fields. Thank you!");
+    alert("Error “Please fill out all required fields. Thank you!");
   } else {
     currentCover = createCover(userInputCover.value, userInputTitle.value, userInputDesc1.value, userInputDesc2.value)
-
     displayUpdatedCover(currentCover);
-
-    pushValuesToArray();
-
+    saveCustomInputs();
     viewHomePage();
-
     document.querySelector("form").reset();
   };
 };
 
-function pushValuesToArray() {
+function saveCustomInputs() {
   covers.push(userInputCover.value);
   titles.push(userInputTitle.value);
   descriptors.push(userInputDesc1.value);
